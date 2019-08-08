@@ -4,5 +4,5 @@
 ### Authors:
 - James Hankins (@JHankins09)
 - Seth Sprague (@swsprague)
-- Gabriel Andreottola
+- Gabriel Andreottola (@gandreottola)
 - Lori Pinkham (@lpinkham)
