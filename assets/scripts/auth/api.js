@@ -39,21 +39,9 @@ const signOut = () => {
   })
 }
 
-const changeEmail = (formData, id) => {
-  return $.ajax({
-    url: config.apiUrl + `/users/${id}`,
-    data: formData,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword,
-  changeEmail
+  changePassword
 }
