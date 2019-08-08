@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const imageUpload = formData => {
+  console.log('Posting to api')
   $.ajax({
     method: 'POST',
     data: formData,
