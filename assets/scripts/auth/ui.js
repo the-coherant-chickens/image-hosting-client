@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store')
 
 const successMessage = message => {
   $('#message').text(message).show()
@@ -26,6 +27,10 @@ const signUpSuccessful = responseData => {
 
 const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
+  store.user = responseData.user
+
+  $('#passwordButton').removeClass('collapse')
+  $('#signOutButton').removeClass('collapse')
 }
 
 const changePasswordSuccessful = responseData => {
