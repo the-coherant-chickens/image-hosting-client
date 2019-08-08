@@ -6,7 +6,9 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-const imageEvents = require('./images/events')
+const imagesEvents = require('./images/events')
+const authEvents = require('./auth/events')
 $(() => {
-  imageEvents.addHandlers()
+  imagesEvents.addHandlers()
+  authEvents.addHandlers()
 })
