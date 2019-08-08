@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Chicken Pix</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,13 +11,61 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Browser Template</h1>
+    <body class=".container-fluid">
+      <div class="row d-flex flex-row-reverse">
+        <main class="col-sm-9">
+          <div id="image">
+            <input id="tag" type="text" name="image[tag]" placeholder="Tag Name">
+          </div>
+          <div id="images_content" class="images-content"></div>
+        </main>
+        <aside class="col-sm-3">
+          <h1 style="text-decoration: underline;">Chicken Pix</h1>
 
-      <div id="image">
-      <input id="tag" type="text" name="image[tag]" placeholder="Tag Name">
+          <h3>Get Started</h3>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="SignUp">
+                <h5 class="mb-0">
+                  <button class="btn" data-toggle="collapse" data-target="#SignUpToggle" aria-expanded="true" aria-controls="SignUpToggle">
+                    Sign Up
+                  </button>
+                </h5>
+              </div>
+
+              <div id="SignUpToggle" class="collapse" aria-labelledby="SignUp" data-parent="#accordion">
+                <div class="card-body">
+                  <form>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm Password">
+                    <button class="submit" type="submit">Sign up</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="SignIn">
+                <h5 class="mb-0">
+                  <button class="btn collapsed" data-toggle="collapse" data-target="#SignInToggle" aria-expanded="false" aria-controls="SignInToggle">
+                    Sign In
+                  </button>
+                </h5>
+              </div>
+              <div id="SignInToggle" class="collapse" aria-labelledby="SignIn" data-parent="#accordion">
+                <div class="card-body">
+                  <form>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <button class="submit" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2>Resource CRUD content</h2>
+        </aside>
       </div>
-
-      <div id="images_content" class="images-content"></div>
     </body>
 </html>

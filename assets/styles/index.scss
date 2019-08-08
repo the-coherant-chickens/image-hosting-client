@@ -1,1 +1,49 @@
 @import '~bootstrap/scss/bootstrap';
+
+aside {
+  background: #222222;
+  color: #efefef;
+  height: 100vh;
+  .card-header {
+    color: #efefef;
+    background: #222222;
+    .btn {
+      color: #efefef;
+      text-decoration: underline;
+      margin: auto;
+    }
+    padding: 0 5px;
+  }
+  .sign-up {
+    background: #efefef;
+    color: #222222;
+  }
+  .card-body {
+    background: #222222;
+    color: #222222;
+    width: auto;
+  }
+  form {
+    input{
+      width: 90%;
+      padding: 5%;
+      margin: 5%;
+      border-radius: 5px;
+    }
+    .submit {
+      border-radius: 15px;
+      background: #222222;
+      color: #efefef;
+      padding: 5px 15px;
+      text-align: center;
+      width: 60%;
+      margin-top: 30px;
+      margin-right: 20%;
+    }
+  }
+}
+
+main {
+  background: #efefef;
+  color: #222222;
+}
