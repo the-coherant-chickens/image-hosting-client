@@ -20,6 +20,7 @@
           <div id="images_content" class="images-content"></div>
         </main>
         <aside class="col-sm-3">
+
           <h1 style="text-decoration: underline;">Chicken Pix</h1>
 
           <h3>Get Started</h3>
@@ -47,7 +48,7 @@
             <div class="card">
               <div class="card-header" id="SignIn">
                 <h5 class="mb-0">
-                  <button class="btn collapsed" data-toggle="collapse" data-target="#SignInToggle" aria-expanded="false" aria-controls="SignInToggle">
+                  <button class="btn" data-toggle="collapse" data-target="#SignInToggle" aria-expanded="false" aria-controls="SignInToggle">
                     Sign In
                   </button>
                 </h5>
@@ -58,6 +59,25 @@
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Password">
                     <button class="submit" type="submit">Sign in</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="ChangePassword">
+                <h5 class="mb-0">
+                  <button class="btn collapse" data-toggle="collapse" data-target="#ChangePasswordToggle" aria-expanded="true" aria-controls="ChangePasswordToggle">
+                    Change Password
+                  </button>
+                </h5>
+              </div>
+
+              <div id="ChangePasswordToggle" class="collapse" aria-labelledby="ChangePassword" data-parent="#accordion">
+                <div class="card-body">
+                  <form>
+                    <input type="password" placeholder="Current Password">
+                    <input type="password" placeholder="New Password">
+                    <button class="submit" type="submit">Sign up</button>
                   </form>
                 </div>
               </div>
