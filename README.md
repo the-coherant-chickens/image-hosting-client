@@ -2,6 +2,7 @@
 ## Image Hosting Client
 
 ### Authors:
-James Hankins
-@lpinkham
-
+- James Hankins (@JHankins09)
+- Seth Sprague (@swsprague)
+- Gabriel Andreottola
+- Lori Pinkham (@lpinkham)
