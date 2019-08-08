@@ -14,6 +14,15 @@
     <body class=".container-fluid">
       <div class="row d-flex flex-row-reverse">
         <main class="col-sm-9">
+
+          <h2>Resource CRUD content</h2>
+            <form id="imageUploadForm" enctype="multipart/form-data">
+              <input type="file" name="file">
+              <button class="btn btn-primary" type="submit">Submit please</button>
+            </form>
+          <section id="display">
+          </section>
+
           <div id="image">
             <input id="tag" type="text" name="image[tag]" placeholder="Tag Name">
           </div>
@@ -101,8 +110,6 @@
               </div>
             </div>
           </div>
-
-          <h2>Resource CRUD content</h2>
         </aside>
       </div>
     </body>

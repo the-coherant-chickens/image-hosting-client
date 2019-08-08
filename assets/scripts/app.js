@@ -8,7 +8,9 @@
 
 // const imagesEvents = require('./images/events')
 const authEvents = require('./auth/events')
+const imagesEvents = require('./images/events')
+
 $(() => {
-  // imagesEvents.addHandlers()
   authEvents.addHandlers()
+  imagesEvents.addHandlers()
 })
