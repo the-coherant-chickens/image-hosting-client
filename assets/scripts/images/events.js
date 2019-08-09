@@ -15,7 +15,8 @@ const onImageUpload = event => {
   }
   console.log(formData)
   api.imageUpload(formData)
-    .then(console.log)
+    .then(ui.imageUploadSuccessful)
+    .then()
     .catch(console.error)
 }
 
