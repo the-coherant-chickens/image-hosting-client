@@ -29,6 +29,7 @@ const onDeleteImage = data => {
     .then(console.log)
     .catch(console.error)
 }
+
 const onImageIndex = (formData) => {
   event.preventDefault()
   api.imageIndex(formData)
