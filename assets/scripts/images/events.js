@@ -3,6 +3,7 @@
 const store = require('./../store')
 const api = require('./api')
 const ui = require('./ui')
+// const store = require('../store')
 
 const onImageUpload = event => {
   event.preventDefault()
