@@ -14,8 +14,8 @@ const onImageUpload = event => {
   }
   console.log(formData)
   api.imageUpload(formData)
-    .then()
-    .catch()
+    .then(console.log)
+    .catch(console.error)
 }
 
 const addHandlers = () => {
