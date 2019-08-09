@@ -16,29 +16,64 @@ const imageUpload = formData => {
   })
 }
 
+// GET request
+const imageGet = () => {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/images/:id',
+    // contentType: false,
+    // processData: false,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 const updateImage = function (currentImage, formData) {
   return $.ajax({
     url: config.apiUrl + '/images/' + currentImage,
     method: 'PATCH',
     data: formData,
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
+headers: {
+  Authorization: 'Token token=' + store.user.token
+}
+})
 }
 
-const deleteImage = function (currentImage) {
+// GET request
+const imageIndex = () => {
   return $.ajax({
-    url: config.apiUrl + '/images/' + currentImage,
-    method: 'DELETE',
+    method: 'GET',
+    url: config.apiUrl + '/images',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
+
+  const deleteImage = function (currentImage) {
+    return $.ajax({
+      url: config.apiUrl + '/images/' + currentImage,
+      method: 'DELETE',
+  headers: {
+    Authorization: 'Token token=' + store.user.token
+  }
+})
+    .then(display)
 }
+
+// LP ADDED for testing
+const display = function (data) {
+  console.log('data is ', data.images.length)
+  for (let i = 0; i < data.images.length; i++) {
+    $('#display').append('<img src="' + data.images[i].url + '"/>')
+  }
+}
+// End of added
 
 module.exports = {
   imageUpload,
+  imageGet,
+  imageIndex,
+  display,
   updateImage,
   deleteImage
 }
