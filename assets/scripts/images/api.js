@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const imageUpload = formData => {
-  $.ajax({
+  return $.ajax({
     method: 'POST',
     data: formData,
     url: config.apiUrl + '/images',
