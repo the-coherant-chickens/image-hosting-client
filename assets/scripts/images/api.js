@@ -16,6 +16,19 @@ const imageUpload = formData => {
   })
 }
 
+// GET request
+const imageGet = () => {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/images/:id',
+    // contentType: false,
+    // processData: false,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateImage = function (currentImage, formData) {
   return $.ajax({
     url: config.apiUrl + '/images/' + currentImage,
@@ -25,6 +38,18 @@ const updateImage = function (currentImage, formData) {
       Authorization: 'Token token=' + store.user.token
     }
   })
+}
+
+// GET request
+const imageIndex = () => {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/images',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+    .then(display)
 }
 
 const deleteImage = function (currentImage) {
@@ -37,8 +62,20 @@ const deleteImage = function (currentImage) {
   })
 }
 
+// LP ADDED for testing
+const display = function (data) {
+  // console.log('data is ', data.images.length)
+  for (let i = 0; i < data.images.length; i++) {
+    $('#display').append('<img src="' + data.images[i].url + '"/>')
+  }
+}
+// End of added
+
 module.exports = {
   imageUpload,
+  imageGet,
+  imageIndex,
+  display,
   updateImage,
   deleteImage
 }

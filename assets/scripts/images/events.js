@@ -30,9 +30,17 @@ const onDeleteImage = data => {
     .catch(console.error)
 }
 
+const onImageIndex = (formData) => {
+  event.preventDefault()
+  api.imageIndex(formData)
+}
+
 const addHandlers = () => {
   $('#imageUploadForm').on('submit', onImageUpload)
   $('#imageDelete').on('click', onDeleteImage)
+  // LP ADDED to test
+  $('#getIndex').on('submit', onImageIndex)
+  // end LP
 }
 
 module.exports = {
