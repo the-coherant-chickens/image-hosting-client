@@ -27,11 +27,12 @@ const onDeleteImage = data => {
 
   api.deleteImage(currentImage)
     .then(console.log)
-    .catch
+    .catch(console.error)
 }
 
 const addHandlers = () => {
   $('#imageUploadForm').on('submit', onImageUpload)
+  $('#imageDelete').on('click', onDeleteImage)
 }
 
 module.exports = {
