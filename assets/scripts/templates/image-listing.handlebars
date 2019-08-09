@@ -1,15 +1,17 @@
 {{#each images as |image|}}
 {{log image}}
-  <section data-id="{{image.id}}">
-    <h3>Date Created: {{date_created}}</h3>
-    <h3>Date Modified: {{date_modified}}</h3>
-    <h3>Owner: {{user.email}}
-    <h3>Tag: {{tag}}</h5>
+  <section data-id="{{image.__v}}">
+<img src="{{image.url}}"/>
+<h3>#{{image.__v}}</h3>
+    <h3>Date Created: {{image.createdAt}}</h3>
+    <h3>Date Modified: {{image.updatedAt}}</h3>
+    <h3>Owner: {{user.email}}</h3>
+    <h3>Tag: {{tag}}</h3>
     <!-- {{> partial}} -->
   </section>
 
-  <button data-id="{{image.id}}"
+  <button data-id="{{image.__v}}"
           class="btn btn-outline-info mr-2 update">Edit</button>
-          <button data-id="{{image.id}}"
+          <button data-id="{{image.__v}}"
                   class="btn btn-danger delete">Remove</button>
 {{/each}}

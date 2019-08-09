@@ -3,6 +3,7 @@
 const store = require('./../store')
 const api = require('./api')
 const ui = require('./ui')
+// const store = require('../store')
 
 const onImageUpload = event => {
   event.preventDefault()
@@ -14,7 +15,8 @@ const onImageUpload = event => {
   }
   console.log(formData)
   api.imageUpload(formData)
-    .then(console.log)
+    .then(ui.imageUploadSuccessful)
+    .then()
     .catch(console.error)
 }
 
