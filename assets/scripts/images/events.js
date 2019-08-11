@@ -20,14 +20,24 @@ const onImageUpload = event => {
     .catch(console.error)
 }
 
+const onSetDeleteState = data => {
+  event.preventDefault()
+
+  api.imageIndex()
+    .then(ui.setDeleteStateSuccess)
+    .catch(ui.setDeleteStateFail)
+}
+
 const onDeleteImage = data => {
   event.preventDefault()
   const target = event.target
   const currentImage = $(target).data('del-image')
+  console.log('target is ', target)
+  console.log('current image is ', currentImage)
 
   api.deleteImage(currentImage)
-    .then(console.log)
-    .catch(console.error)
+    .then(ui.deleteImageSuccess)
+    .catch(ui.deleteImageFail)
 }
 
 const onImageIndex = (formData) => {
@@ -37,7 +47,8 @@ const onImageIndex = (formData) => {
 
 const addHandlers = () => {
   $('#imageUploadForm').on('submit', onImageUpload)
-  $('#imageDelete').on('click', onDeleteImage)
+  $('#show-delete').on('click', onSetDeleteState)
+  $('body').on('click', '.delete-image', onDeleteImage)
   // LP ADDED to test
   $('#getIndex').on('submit', onImageIndex)
   // end LP

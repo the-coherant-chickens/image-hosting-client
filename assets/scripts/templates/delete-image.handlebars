@@ -1,0 +1,12 @@
+{{#each images as |image|}}
+  {{log image.owner}}
+  <img src="{{image.url}}"/>
+  <h3>Date Created: {{image.createdAt}}</h3>
+  <h3>Date Modified: {{image.updatedAt}}</h3>
+  <h3>Owner: {{image.owner.email}}</h3>
+  <h3>Tag: {{tag}}</h3>
+  <button class="delete-image btn btn-danger delete col-mb-3" data-del-image="{{image._id}}">Delete Image</button>
+
+  <br>
+
+{{/each}}
