@@ -17,10 +17,10 @@ const imageUpload = formData => {
 }
 
 // GET request
-const imageGet = () => {
+const imageGet = currentImage => {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/images/:id',
+    url: config.apiUrl + '/images/' + currentImage,
     // contentType: false,
     // processData: false,
     headers: {
