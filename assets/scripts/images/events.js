@@ -8,17 +8,12 @@ const getFormFields = require('./../../../lib/get-form-fields')
 
 const onImageUpload = event => {
   event.preventDefault()
-  console.log('This is the form', event.target)
   const formData = new FormData(event.target)
   formData.append('owner', store.user._id)
-  for (const [key, value] of formData.entries()) {
-    console.log('Yatzee!!', 'Key value is ' + key, 'Value value is ', value)
-  }
-  console.log(formData)
   api.imageUpload(formData)
     .then(ui.imageUploadSuccessful)
     .then()
-    .catch(console.error)
+    .catch(ui.imageUploadFailure)
 }
 
 const onImageIndex = data => {
@@ -45,8 +40,6 @@ const onDeleteImage = data => {
   event.preventDefault()
   const target = event.target
   const currentImage = $(target).data('del-image')
-  console.log('target is ', target)
-  console.log('current image is ', currentImage)
 
   api.deleteImage(currentImage)
     .then(ui.deleteImageSuccess)
@@ -66,7 +59,6 @@ const onSelectImageEdit = data => {
 
   const target = event.target
   const currentImage = $(target).data('update-image')
-  // const resource = store.images.find(image => currentImage === image._id)
 
   api.imageGet(currentImage)
     .then(ui.getImageSuccess)
@@ -75,14 +67,9 @@ const onSelectImageEdit = data => {
 
 const onUpdateImage = event => {
   event.preventDefault()
-  console.log('event target is', event.target)
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   const currentImage = $(form).data('update-image')
-
-  // const resource = store.images.find(image => id === image._id)
-  // store.id = id
 
   api.updateImage(currentImage, formData)
     .then(ui.updateImageSuccess)

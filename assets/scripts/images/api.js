@@ -61,15 +61,6 @@ const deleteImage = function (currentImage) {
   })
 }
 
-// LP ADDED for testing
-// const display = function (data) {
-//   // console.log('data is ', data.images.length)
-//   for (let i = 0; i < data.images.length; i++) {
-//     $('#display').append('<img src="' + data.images[i].url + '"/>')
-//   }
-// }
-// End of added
-
 module.exports = {
   imageUpload,
   imageGet,

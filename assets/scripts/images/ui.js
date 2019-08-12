@@ -48,7 +48,6 @@ const indexImagesSuccess = responseData => {
   for (i = 0; i < store.images.length; i++) {
     store.images[i].userName = store.images[i].owner.email.split('@')[0]
   }
-  console.log(store.images)
   const showImagesHtml = showImagesTemplate({ images: store.images })
   $('#images-content').append(showImagesHtml)
 }
@@ -67,7 +66,6 @@ const setDeleteStateSuccess = responseData => {
     images[i].userName = images[i].owner.email.split('@')[0]
     images[i].editable = images[i].owner.email === store.user.email
   }
-  console.log('Data going to delete handlebars = ', images)
   const imagesHtml = deleteImageTemplate({ images: images })
 
   $('#images-content').append(imagesHtml)
@@ -99,7 +97,6 @@ const setUpdateSuccess = responseData => {
     images[i].userName = images[i].owner.email.split('@')[0]
     images[i].editable = images[i].owner.email === store.user.email
   }
-  console.log('Images! ', images)
   const imagesHtml = updateImageTemplate({ images: images })
 
   $('#images-content').append(imagesHtml)
