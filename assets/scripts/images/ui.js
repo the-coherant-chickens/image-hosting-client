@@ -25,13 +25,12 @@ const failureMessage = message => {
 
 const imageUploadSuccessful = responseData => {
   store.image = responseData.image
-
   successMessage('Successfully Uploaded Your Image!')
-
+  responseData.image.userName = () => {
+    return store.user.email.split('@')[0]
+  }
   const showImagesHtml = showImagesTemplate({images: responseData})
-
   $('#images-content').html(showImagesHtml)
-
   $('form').trigger('reset')
   $('#imageUploadForm').hide()
 }
@@ -41,14 +40,13 @@ const imageUploadFailure = function () {
 }
 
 const indexImagesSuccess = responseData => {
-  console.log('responseData is ', responseData)
   store.images = responseData.images
-  console.log('store.images is ', store.images)
-
   $('#images-content').html('')
-
+  let i
+  for (i = 0; i < store.images.length; i++) {
+    store.images[i].userName = store.images[i].owner.email.split('@')[0]
+  }
   const showImagesHtml = showImagesTemplate({ images: store.images })
-
   $('#images-content').append(showImagesHtml)
 }
 
@@ -61,7 +59,12 @@ const setDeleteStateSuccess = responseData => {
   $('#images-content').html('')
   $('#imageUploadForm').hide()
   $('#show-create').show()
-
+  let i
+  for (i = 0; i < images.length; i++) {
+    images[i].userName = images[i].owner.email.split('@')[0]
+    images[i].editable = images[i].owner.email === store.user.email
+  }
+  console.log('Data going to delete handlebars = ', images)
   const imagesHtml = deleteImageTemplate({ images: images })
 
   $('#images-content').append(imagesHtml)
