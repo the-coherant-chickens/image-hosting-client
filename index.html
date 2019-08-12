@@ -16,24 +16,33 @@
         <main class="col-sm-9">
 
           <h2>Resource CRUD content</h2>
+          <h3 id="user-status" class="head"></h3>
             <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data">
               <input type="file" name="file">
               <input type="text" name="tag" placeholder="Tags field">
               <button class="btn btn-primary" type="submit">Submit please</button>
             </form>
 
+            <button id="show-delete" class="btn btn-primary col-mb-3">Delete Images</button>
+
+            <button id="cancel-delete" class="btn btn-primary col-mb-3">CANCEL</button>
+
+            <button id="show-images" class="btn btn-primary col-mb-3">View All Images</button>
+
+            <button id="show-create" class="btn btn-primary col-mb-3">Upload New Image</button>
+
             <!-- LP ADDED FOR TESTING -->
-            <form id="getIndex">
+            <!-- <form id="getIndex">
               <button class="submit" type="submit">Get Index</button>
             </form>
           <section id="display">
-          </section>
+          </section> -->
           <!-- LP ADDED FOR TESTING -->
 
           <!-- <div id="image">
             <input id="tag" type="text" name="image[tag]" placeholder="Tag Name">
           </div> -->
-          <section id="images_content"></section>
+          <section id="images-content"></section>
 
         </main>
         <aside class="col-sm-3">

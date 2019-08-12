@@ -20,27 +20,71 @@ const onImageUpload = event => {
     .catch(console.error)
 }
 
+const onImageIndex = data => {
+  event.preventDefault()
+
+  $('#user-status').text('')
+
+  $('#show-images').hide()
+
+  api.imageIndex()
+    .then(ui.indexImagesSuccess)
+    .catch(ui.indexImagesFailure)
+}
+
+const onSetDeleteState = data => {
+  event.preventDefault()
+
+  api.imageIndex()
+    .then(ui.setDeleteStateSuccess)
+    .catch(ui.setDeleteStateFail)
+}
+
 const onDeleteImage = data => {
   event.preventDefault()
   const target = event.target
   const currentImage = $(target).data('del-image')
+  console.log('target is ', target)
+  console.log('current image is ', currentImage)
 
   api.deleteImage(currentImage)
-    .then(console.log)
-    .catch(console.error)
-}
-
-const onImageIndex = (formData) => {
-  event.preventDefault()
-  api.imageIndex(formData)
+    .then(ui.deleteImageSuccess)
+    .catch(ui.deleteImageFail)
 }
 
 const addHandlers = () => {
-  $('#imageUploadForm').on('submit', onImageUpload)
-  $('#imageDelete').on('click', onDeleteImage)
-  // LP ADDED to test
-  $('#getIndex').on('submit', onImageIndex)
-  // end LP
+  $('#show-create').on('click', function () {
+    $('#imageUploadForm').show()
+    $('#show-images').show()
+    $('#show-create').hide()
+    $('#images-content').html('')
+    $('#cancel-delete').hide()
+    $('#show-delete').hide()
+  }).hide()
+  $('#imageUploadForm').on('submit', onImageUpload).hide()
+  $('#imageUploadForm').on('submit', function () {
+    $('#show-create').show()
+    $('#show-images').show()
+  }).hide()
+  $('#show-delete').on('click', onSetDeleteState).hide()
+  $('#show-delete').on('click', function () {
+    $('#cancel-delete').show()
+    $('#show-delete').hide()
+  })
+  $('#cancel-delete').on('click', onImageIndex).hide()
+  $('#cancel-delete').on('click', function () {
+    $('#show-delete').show()
+    $('#cancel-delete').hide()
+  }).hide()
+  $('body').on('click', '.delete-image', onDeleteImage)
+  $('#show-images').on('click', onImageIndex).hide()
+  $('#show-images').on('click', function () {
+    $('#show-images').hide()
+    $('#cancel-delete').hide()
+    $('#imageUploadForm').hide()
+    $('#show-create').show()
+    $('#show-delete').show()
+  })
 }
 
 module.exports = {
