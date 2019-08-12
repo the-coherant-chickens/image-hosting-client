@@ -1,9 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
+.handlebar-card {
+  padding: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: 20px;
+  border: 2px;
+  background: #5d8ab1;
+  border-radius: 20px;
+}
+
 aside {
   background: #222222;
   color: #efefef;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 10vh;
   .card-header {
     color: #efefef;
@@ -37,7 +46,7 @@ aside {
       color: #efefef;
       padding: 5px 15px;
       text-align: center;
-      width: 60%;
+      width: 100%;
       margin-top: 30px;
       margin-right: 20%;
     }
