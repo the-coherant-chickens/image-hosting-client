@@ -3,6 +3,8 @@
 const store = require('../store')
 const showImagesTemplate = require('../templates/image-listing.handlebars')
 const deleteImageTemplate = require('../templates/delete-image.handlebars')
+const updateImageTemplate = require('../templates/update-image.handlebars')
+const getImageTemplate = require('../templates/choose-image.handlebars')
 
 const successMessage = message => {
   $('#user-status').text(message).fadeIn(1000)
@@ -86,6 +88,44 @@ const deleteImageFail = function () {
   failureMessage('Unable to Delete Image')
 }
 
+const setUpdateSuccess = responseData => {
+  const images = responseData.images
+  $('#images-content').html('')
+  $('#imageUploadForm').hide()
+  $('#show-edit').show()
+
+  const imagesHtml = updateImageTemplate({ images: images })
+
+  $('#images-content').append(imagesHtml)
+}
+
+const setUpdateFail = function () {
+  failureMessage('Unable to Update Image')
+}
+
+const updateImageSuccess = responseData => {
+  successMessage('Successfully upated Image')
+
+  $('#images-content').html('')
+  $('#show-images').show()
+}
+
+const updateImageFail = function () {
+  failureMessage('Unable to Update Image')
+}
+
+const getImageSuccess = responseData => {
+  successMessage('Successfully got Image')
+
+  const imagesHtml = getImageTemplate({ images: responseData })
+
+  $('#images-content').html(imagesHtml)
+}
+
+const getImageFail = function () {
+  failureMessage('Unable to get Image')
+}
+
 module.exports = {
   imageUploadSuccessful,
   imageUploadFailure,
@@ -94,5 +134,11 @@ module.exports = {
   deleteImageSuccess,
   deleteImageFail,
   indexImagesSuccess,
-  indexImagesFailure
+  indexImagesFailure,
+  setUpdateSuccess,
+  setUpdateFail,
+  updateImageSuccess,
+  updateImageFail,
+  getImageSuccess,
+  getImageFail
 }
