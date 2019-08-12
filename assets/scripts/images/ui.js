@@ -56,7 +56,6 @@ const indexImagesFailure = function () {
 }
 
 const setDeleteStateSuccess = responseData => {
-  console.log('Setting delete state...')
   const images = responseData.images
   $('#images-content').html('')
   $('#imageUploadForm').hide()
