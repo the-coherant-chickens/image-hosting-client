@@ -28,8 +28,6 @@ const signUpSuccessful = responseData => {
 const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
   store.user = responseData.user
-  console.log(store.user)
-
   $('#passwordButton').removeClass('collapse')
   $('#signOutButton').removeClass('collapse')
 }
