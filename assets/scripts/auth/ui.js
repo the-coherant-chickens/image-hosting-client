@@ -12,10 +12,12 @@ const successMessage = message => {
 }
 
 const failure = message => {
-  $('#message').text(message).show()
+  $('#message').text('FAIL!').show()
   setTimeout(() => { $('#message').hide() }, 3000)
   $('#message').removeClass('success')
   $('#message').addClass('failure')
+
+  // clear out our forms
   $('form').trigger('reset')
 }
 
@@ -27,7 +29,6 @@ const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
   store.user = responseData.user
   $('#user-status').text('Check out all these Chicken Pix!')
-  $('#user-status').fadeOut(3000)
   $('#passwordButton').removeClass('collapse')
   $('#signOutButton').removeClass('collapse')
   // $('#signOut').removeClass('collapse')

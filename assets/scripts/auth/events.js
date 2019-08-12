@@ -50,13 +50,6 @@ const onSignOut = event => {
 const addHandlers = () => {
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)
-  $('#signIn').on('submit', function () {
-    $('#show-create').show()
-    $('#show-delete').show()
-    $('#show-update').show()
-    // $('#signIn').hide()
-    // $('#signUp').hide()
-  })
   $('#changePassword').on('submit', onChangePassword)
   $('#signOut').on('submit', onSignOut).on('submit', () => {
     $('#show-create').hide()
