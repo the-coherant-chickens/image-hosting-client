@@ -28,7 +28,7 @@ const signUpSuccessful = responseData => {
 const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
   store.user = responseData.user
-  $('#user-status').text('Check out all these Chicken Pix!')
+  $('#user-status').text('Check out all these Chicken Pix!').fadeOut(3000)
   $('#passwordButton').removeClass('collapse')
   $('#signOutButton').removeClass('collapse')
   // $('#signOut').removeClass('collapse')
