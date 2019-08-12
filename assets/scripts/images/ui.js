@@ -43,11 +43,16 @@ const imageUploadFailure = function () {
 const indexImagesSuccess = responseData => {
   store.images = responseData.images
   $('#images-content').html('')
-  let i
-  for (i = 0; i < store.images.length; i++) {
-    store.images[i].userName = store.images[i].owner.email.split('@')[0]
+  let showImagesHtml
+  if (store.images.length) {
+    let i
+    for (i = 0; i < store.images.length; i++) {
+      store.images[i].userName = store.images[i].owner.email.split('@')[0]
+    }
+    showImagesHtml = showImagesTemplate({ images: store.images })
+  } else {
+    showImagesHtml = '<h3>Looks like your album is empty - try adding images!</h3>'
   }
-  const showImagesHtml = showImagesTemplate({ images: store.images })
   $('#images-content').append(showImagesHtml)
 }
 
@@ -69,7 +74,7 @@ const setDeleteStateSuccess = responseData => {
       ownedImages++
     }
   }
-  const imagesHtml = ownedImages ? deleteImageTemplate({ images: images }) : '<h1>No images available to Delete.<h1>'
+  const imagesHtml = ownedImages ? deleteImageTemplate({ images: images }) : '<h3>Looks like you\'re a bit ahead of yourself! No images available to Delete.<h1>'
 
   $('#images-content').append(imagesHtml)
 }
@@ -109,7 +114,7 @@ const setUpdateSuccess = responseData => {
     if (ownedImages > 0) {
       return updateImageTemplate({ images: images })
     } else {
-      return '<h3>You suck. Get some images.<h3>'
+      return '<h3>Your album is empty! Get some images.<h3>'
     }
   }
   $('#images-content').append(imagesHtml)
