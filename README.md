@@ -1,7 +1,13 @@
-# The Corherent Chickens
+# The Coherent Chickens
 ## Image Hosting
 
-This repo is built in tandem with https://github.com/the-coherant-chickens/the-coherent-chickens-client
+This repo is built in tandem with https://github.com/the-coherant-chickens/the-coherent-chickens-express
+
+## Deployed Link
+<https://the-coherant-chickens.github.io/the-coherent-chickens-client/>
+
+## Heroku Link
+<https://the-coherent-chickens-heroku.herokuapp.com/>
 
 ### Authors:
 - ##### Lori Pinkham (@lpinkham) | *Project Lead / Product Lead*
@@ -38,10 +44,6 @@ Chicken Pic's is an app to help you organize your images. This app allows you to
 - https://media.git.generalassemb.ly/user/21061/files/a8045f00-b9c7-11e9-9ef4-9dd1ba38e8d2
 - https://media.git.generalassemb.ly/user/21061/files/b5214e00-b9c7-11e9-8424-a0067c400fdb
 - https://media.git.generalassemb.ly/user/21061/files/c66a5a80-b9c7-11e9-9e78-5bdd1e324f03
-
-##### ERD
-- https://media.git.generalassemb.ly/user/21061/files/e26dfc00-b9c7-11e9-9757-e2de606ee3ee
-
 
 #### This project was planned to be built in 3 primary parts:
   1. Build out API
@@ -95,15 +97,6 @@ Developement split amongst 4 primary team members. Scope of project created numo
     - Powered by Express
   - javascript
   - Node.js
-
-## Catalog of Routes
-| Method | Path |
-|-------|:----------|
-|GET   | /images/:id  |
-|POST   |  /images |
-|INDEX   |  /images |
-|DELETE   | /images/:id  |
-|PATCH   | /images/:id  |
 
 
 ## Acknowledgments
