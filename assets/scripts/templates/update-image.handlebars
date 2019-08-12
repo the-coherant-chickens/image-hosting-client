@@ -1,11 +1,26 @@
-{{#each images as |image|}}
-  {{log image.owner}}
-  <img src="{{image.url}}"/>
-  <h3>Date Created: {{image.createdAt}}</h3>
-  <h3>Date Modified: {{image.updatedAt}}</h3>
-  <h3>Owner: {{image.owner.email}}</h3>
-  <h3>Tag: {{tag}}</h3>
-  <button class="btn btn-primary update-image" data-update-image="{{image._id}}">Edit</button>
-  <br>
-
-{{/each}}
+<div class="row">
+  {{#each images as |image|}}
+    {{#if image.editable}}
+    <div class="col-sm-6 row">
+      <div class="col-1"></div>
+      <div class="col-10 justify-content-center handlebar-card">
+        <img src="{{image.url}}" style="max-width: 100%; max-height: 100%;"/>
+        <h5>Name: {{image.name}}</h5>
+        <h6>Owner: {{image.userName}}</h6>
+        <h6>Tag:</h6>
+          <ul>
+              {{#each tag as |tag|}}
+              {{#if tag}}
+              <li>{{tag}}</li>
+              {{/if}}
+              {{/each}}
+          </ul>
+        <h6>Date Created: {{image.createdAt}}</h6>
+        <h6>Date Modified: {{image.updatedAt}}</h6>
+        <button class="btn btn-primary update-image" data-update-image="{{image._id}}">Edit</button>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    {{/if}}
+  {{/each}}
+</div>

@@ -48,6 +48,7 @@ const indexImagesSuccess = responseData => {
   for (i = 0; i < store.images.length; i++) {
     store.images[i].userName = store.images[i].owner.email.split('@')[0]
   }
+  console.log(store.images)
   const showImagesHtml = showImagesTemplate({ images: store.images })
   $('#images-content').append(showImagesHtml)
 }
@@ -93,7 +94,12 @@ const setUpdateSuccess = responseData => {
   $('#images-content').html('')
   $('#imageUploadForm').hide()
   $('#show-edit').show()
-
+  let i
+  for (i = 0; i < images.length; i++) {
+    images[i].userName = images[i].owner.email.split('@')[0]
+    images[i].editable = images[i].owner.email === store.user.email
+  }
+  console.log('Images! ', images)
   const imagesHtml = updateImageTemplate({ images: images })
 
   $('#images-content').append(imagesHtml)
