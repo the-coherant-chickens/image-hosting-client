@@ -1,11 +1,11 @@
 {{#each images as |image|}}
 <!-- {{log image}} -->
-  <section data-id="{{image.__v}}">
-<img src="{{image.url}}"/>
+  <!-- <section data-id="{{image.__v}}"> -->
+  <img src="{{image.url}}"/>
 <!-- <h3>#{{image.__v}}</h3> -->
     <h3>Date Created: {{image.createdAt}}</h3>
     <h3>Date Modified: {{image.updatedAt}}</h3>
-    <h3>Owner: {{user.email}}</h3>
+    <h3>Owner: {{image.owner.email}}</h3>
     <h3>Tag: {{tag}}</h3>
     <!-- {{> partial}} -->
   </section>

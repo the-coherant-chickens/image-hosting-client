@@ -33,18 +33,34 @@ const imageUploadSuccessful = responseData => {
   $('#images-content').html(showImagesHtml)
 
   $('form').trigger('reset')
+  $('#imageUploadForm').hide()
 }
 
 const imageUploadFailure = function () {
   failureMessage('Unable to Upload Image')
 }
 
+const indexImagesSuccess = responseData => {
+  console.log('responseData is ', responseData)
+  store.images = responseData.images
+  console.log('store.images is ', store.images)
+
+  $('#images-content').html('')
+
+  const showImagesHtml = showImagesTemplate({ images: store.images })
+
+  $('#images-content').append(showImagesHtml)
+}
+
+const indexImagesFailure = function () {
+  failureMessage('You haven\'t added uploaded any images yet!')
+}
+
 const setDeleteStateSuccess = responseData => {
   const images = responseData.images
-  // console.log('playlists are ', playlists)
   $('#images-content').html('')
   $('#imageUploadForm').hide()
-  $('#add-image').show()
+  $('#show-create').show()
 
   const imagesHtml = deleteImageTemplate({ images: images })
 
@@ -57,7 +73,10 @@ const setDeleteStateFail = function () {
 
 const deleteImageSuccess = () => {
   successMessage('Successfully deleted Image')
-  $('images-content').html('')
+  $('#images-content').html('')
+  $('#show-delete').hide()
+  $('#cancel-delete').hide()
+  $('#show-images').show()
 }
 
 const deleteImageFail = function () {
@@ -70,5 +89,7 @@ module.exports = {
   setDeleteStateSuccess,
   setDeleteStateFail,
   deleteImageSuccess,
-  deleteImageFail
+  deleteImageFail,
+  indexImagesSuccess,
+  indexImagesFailure
 }

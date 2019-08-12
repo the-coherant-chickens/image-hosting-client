@@ -2,6 +2,8 @@
 
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
+const imgApi = require('./../images/api')
+const imgUi = require('./../images/ui')
 const ui = require('./ui')
 // const store = require('../store')
 
@@ -22,7 +24,10 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccessful)
+    .then(imgApi.imageIndex)
+    .then(imgUi.indexImagesSuccess)
     .catch(ui.failure)
+    .catch(imgUi.indexImagesFailure)
 }
 
 const onChangePassword = event => {
@@ -46,6 +51,10 @@ const onSignOut = event => {
 const addHandlers = () => {
   $('#signUp').on('submit', onSignUp)
   $('#signIn').on('submit', onSignIn)
+  $('#signIn').on('submit', function () {
+    $('#show-create').show()
+    $('#show-delete').show()
+  })
   $('#changePassword').on('submit', onChangePassword)
   $('#signOut').on('submit', onSignOut)
 }

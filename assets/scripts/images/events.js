@@ -20,6 +20,18 @@ const onImageUpload = event => {
     .catch(console.error)
 }
 
+const onImageIndex = data => {
+  event.preventDefault()
+
+  $('#user-status').text('')
+
+  $('#show-images').hide()
+
+  api.imageIndex()
+    .then(ui.indexImagesSuccess)
+    .catch(ui.indexImagesFailure)
+}
+
 const onSetDeleteState = data => {
   event.preventDefault()
 
@@ -40,18 +52,39 @@ const onDeleteImage = data => {
     .catch(ui.deleteImageFail)
 }
 
-const onImageIndex = (formData) => {
-  event.preventDefault()
-  api.imageIndex(formData)
-}
-
 const addHandlers = () => {
-  $('#imageUploadForm').on('submit', onImageUpload)
-  $('#show-delete').on('click', onSetDeleteState)
+  $('#show-create').on('click', function () {
+    $('#imageUploadForm').show()
+    $('#show-images').show()
+    $('#show-create').hide()
+    $('#images-content').html('')
+    $('#cancel-delete').hide()
+    $('#show-delete').hide()
+  }).hide()
+  $('#imageUploadForm').on('submit', onImageUpload).hide()
+  $('#imageUploadForm').on('submit', function () {
+    $('#show-create').show()
+    $('#show-images').show()
+  }).hide()
+  $('#show-delete').on('click', onSetDeleteState).hide()
+  $('#show-delete').on('click', function () {
+    $('#cancel-delete').show()
+    $('#show-delete').hide()
+  })
+  $('#cancel-delete').on('click', onImageIndex).hide()
+  $('#cancel-delete').on('click', function () {
+    $('#show-delete').show()
+    $('#cancel-delete').hide()
+  }).hide()
   $('body').on('click', '.delete-image', onDeleteImage)
-  // LP ADDED to test
-  $('#getIndex').on('submit', onImageIndex)
-  // end LP
+  $('#show-images').on('click', onImageIndex).hide()
+  $('#show-images').on('click', function () {
+    $('#show-images').hide()
+    $('#cancel-delete').hide()
+    $('#imageUploadForm').hide()
+    $('#show-create').show()
+    $('#show-delete').show()
+  })
 }
 
 module.exports = {
