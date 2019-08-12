@@ -3,6 +3,7 @@
 const store = require('./../store')
 const api = require('./api')
 const ui = require('./ui')
+const getFormFields = require('./../../../lib/get-form-fields')
 // const store = require('../store')
 
 const onImageUpload = event => {
@@ -52,6 +53,42 @@ const onDeleteImage = data => {
     .catch(ui.deleteImageFail)
 }
 
+const onSetUpdateState = data => {
+  event.preventDefault()
+
+  api.imageIndex()
+    .then(ui.setUpdateSuccess)
+    .catch(ui.setUpdateFail)
+}
+
+const onSelectImageEdit = data => {
+  event.preventDefault()
+
+  const target = event.target
+  const currentImage = $(target).data('update-image')
+  // const resource = store.images.find(image => currentImage === image._id)
+
+  api.imageGet(currentImage)
+    .then(ui.getImageSuccess)
+    .catch(ui.getImageFail)
+}
+
+const onUpdateImage = event => {
+  event.preventDefault()
+  console.log('event target is', event.target)
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+  const currentImage = $(form).data('update-image')
+
+  // const resource = store.images.find(image => id === image._id)
+  // store.id = id
+
+  api.updateImage(currentImage, formData)
+    .then(ui.updateImageSuccess)
+    .catch(ui.updateImageFail)
+}
+
 const addHandlers = () => {
   $('#show-create').on('click', function () {
     $('#imageUploadForm').show()
@@ -85,6 +122,9 @@ const addHandlers = () => {
     $('#show-create').show()
     $('#show-delete').show()
   })
+  $('#show-update').on('click', onSetUpdateState)
+  $('body').on('click', '.update-image', onSelectImageEdit)
+  $('body').on('submit', '#imageUploadForm', onUpdateImage)
 }
 
 module.exports = {

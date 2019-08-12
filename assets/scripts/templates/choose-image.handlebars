@@ -1,0 +1,16 @@
+{{#each images as |image|}}
+  {{log image.owner}}
+  <img src="{{image.url}}"/>
+  <h3>Date Created: {{image.createdAt}}</h3>
+  <h3>Date Modified: {{image.updatedAt}}</h3>
+  <h3>Owner: {{image.owner.email}}</h3>
+  <h3>Tag: {{tag}}</h3>
+  <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
+    <input type="file" name="file">
+    <input id="name" type="text" name="image[name]" placeholder="Name field">
+    <input id="tag" type="text" name="image[tag]" placeholder="Tags field">
+    <button class="btn btn-primary update">Confirm Edit</button>
+  </form>
+  <br>
+
+{{/each}}
