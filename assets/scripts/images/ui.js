@@ -17,12 +17,11 @@ const successMessage = message => {
 }
 
 const failureMessage = message => {
+  $('#user-status').show()
   $('#user-status').text(message)
-  $('#user-status').addClass('failure')
-  $('#user-status').removeClass('success')
-
   // clear forms
   $('form').trigger('reset')
+  $('#user-status').fadeOut(3000)
 }
 
 const imageUploadSuccessful = responseData => {
@@ -61,12 +60,16 @@ const setDeleteStateSuccess = responseData => {
   $('#images-content').html('')
   $('#imageUploadForm').hide()
   $('#show-create').show()
+  let ownedImages = 0
   let i
   for (i = 0; i < images.length; i++) {
     images[i].userName = images[i].owner.email.split('@')[0]
     images[i].editable = images[i].owner.email === store.user.email
+    if (images[i].editable === true) {
+      ownedImages++
+    }
   }
-  const imagesHtml = deleteImageTemplate({ images: images })
+  const imagesHtml = ownedImages ? deleteImageTemplate({ images: images }) : '<h1>No images available to Delete.<h1>'
 
   $('#images-content').append(imagesHtml)
 }
@@ -92,22 +95,31 @@ const setUpdateSuccess = responseData => {
   $('#images-content').html('')
   $('#imageUploadForm').hide()
   $('#show-edit').show()
+  let ownedImages = 0
   let i
   for (i = 0; i < images.length; i++) {
     images[i].userName = images[i].owner.email.split('@')[0]
     images[i].editable = images[i].owner.email === store.user.email
+    if (images[i].editable === true) {
+      ownedImages++
+    }
   }
-  const imagesHtml = updateImageTemplate({ images: images })
 
+  const imagesHtml = () => {
+    if (ownedImages > 0) {
+      return updateImageTemplate({ images: images })
+    } else {
+      return '<h3>You suck. Get some images.<h3>'
+    }
+  }
   $('#images-content').append(imagesHtml)
 }
-
 const setUpdateFail = function () {
   failureMessage('Unable to Update Image')
 }
 
 const updateImageSuccess = responseData => {
-  successMessage('Successfully upated Image')
+  successMessage('Successfully updated Image')
 
   $('#images-content').html('')
   $('#show-images').show()
@@ -119,7 +131,9 @@ const updateImageFail = function () {
 
 const getImageSuccess = responseData => {
   successMessage('Successfully got Image')
-
+  responseData.image.userName = () => {
+    return store.user.email.split('@')[0]
+  }
   const imagesHtml = getImageTemplate({ images: responseData })
 
   $('#images-content').html(imagesHtml)

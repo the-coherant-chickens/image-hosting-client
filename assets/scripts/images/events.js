@@ -11,7 +11,6 @@ const onImageUpload = event => {
   formData.append('owner', store.user._id)
   api.imageUpload(formData)
     .then(ui.imageUploadSuccessful)
-    .then()
     .catch(ui.imageUploadFailure)
 }
 
@@ -29,7 +28,6 @@ const onImageIndex = data => {
 
 const onSetDeleteState = data => {
   event.preventDefault()
-
   api.imageIndex()
     .then(ui.setDeleteStateSuccess)
     .catch(ui.setDeleteStateFail)
@@ -108,7 +106,7 @@ const addHandlers = () => {
     $('#show-create').show()
     $('#show-delete').show()
   })
-  $('#show-update').on('click', onSetUpdateState)
+  $('#show-update').on('click', onSetUpdateState).hide()
   $('body').on('click', '.update-image', onSelectImageEdit)
   $('body').on('submit', '#imageUpdateForm', onUpdateImage)
 }
