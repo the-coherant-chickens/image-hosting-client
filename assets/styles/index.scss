@@ -53,6 +53,20 @@ aside {
   }
 }
 
+.image {
+  align-items: right;
+  // box-shadow: 2px 3px #888888;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.image-display {
+  display: inline-grid;
+  padding: 10PX;
+  border: 2px solid black;
+  width: auto;
+}
+
 main {
   background: #efefef;
   color: #222222;
