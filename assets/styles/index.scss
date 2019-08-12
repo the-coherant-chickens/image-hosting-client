@@ -1,70 +1,62 @@
 @import '~bootstrap/scss/bootstrap';
 
 .handlebar-card {
-  padding: 15px;
+  background: #5d8ab1;
+  border: 2px;
+  border-radius: 20px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin: 20px;
-  border: 2px;
-  background: #5d8ab1;
-  border-radius: 20px;
+  padding: 15px;
 }
+
 
 aside {
   background: #222222;
   color: #efefef;
   min-height: 100vh;
   padding-top: 10vh;
+
   .card-header {
-    color: #efefef;
     background: #222222;
+    color: #efefef;
     .btn {
       color: #efefef;
-      text-decoration: underline;
       margin: auto;
+      text-decoration: underline;
     }
     padding: 0 5px;
   }
+
   .sign-up {
     background: #efefef;
     color: #222222;
   }
+
   .card-body {
     background: #222222;
     color: #222222;
     width: auto;
   }
+
   form {
-    input{
-      width: 90%;
-      padding: 5%;
-      margin: 5%;
+    input {
       border-radius: 5px;
+      margin: 5%;
+      padding: 5%;
+      width: 90%;
     }
+
     .submit {
-      border-radius: 15px;
       background: #222222;
+      border-radius: 15px;
       color: #efefef;
+      margin-right: 20%;
+      margin-top: 30px;
       padding: 5px 15px;
       text-align: center;
       width: 100%;
-      margin-top: 30px;
-      margin-right: 20%;
     }
   }
-}
-
-.image {
-  align-items: right;
-  // box-shadow: 2px 3px #888888;
-  padding-top: 10px;
-  text-align: right;
-}
-
-.image-display {
-  display: inline-grid;
-  padding: 10PX;
-  border: 2px solid black;
-  width: auto;
 }
 
 main {
