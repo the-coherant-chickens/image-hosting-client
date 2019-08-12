@@ -1,21 +1,52 @@
 @import '~bootstrap/scss/bootstrap';
 
 .handlebar-card {
-  background: #5d8ab1;
+  padding: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: 20px;
   border: 2px;
+  background: #3090C7;
   border-radius: 20px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   margin: 20px;
   padding: 15px;
 }
 
+.Handlebar-Form {
+  border-radius: 15px;
+  border: 2px;
+  background: #efefef;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+  margin-left: 10px;
+  input, label, button {
+    padding: 15px;
+  }
+  label {
+    font-size: 20px;
+    font-family: 'Questrial', sans-serif;
+  }
+  input {
+    width: 100%;
+    border-radius: 15px;
+  }
+  button {
+    margin-top: 15px;
+  }
+}
 
 aside {
   background: #222222;
   color: #efefef;
   min-height: 100vh;
   padding-top: 10vh;
-
+  h1, {
+    font-family: 'Beth Ellen', cursive;
+  }
+  h3 {
+    font-family: 'Questrial', sans-serif;
+  }
   .card-header {
     background: #222222;
     color: #efefef;

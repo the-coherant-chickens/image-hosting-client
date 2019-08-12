@@ -119,7 +119,9 @@ const updateImageFail = function () {
 
 const getImageSuccess = responseData => {
   successMessage('Successfully got Image')
-
+  responseData.image.userName = () => {
+    return store.user.email.split('@')[0]
+  }
   const imagesHtml = getImageTemplate({ images: responseData })
 
   $('#images-content').html(imagesHtml)
