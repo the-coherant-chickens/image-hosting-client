@@ -1,16 +1,29 @@
 {{#each images as |image|}}
-  {{log image.owner}}
-  <img src="{{image.url}}"/>
-  <h3>Date Created: {{image.createdAt}}</h3>
-  <h3>Date Modified: {{image.updatedAt}}</h3>
-  <h3>Owner: {{image.owner.email}}</h3>
-  <h3>Tag: {{tag}}</h3>
-  <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
-    <input type="file" name="file">
-    <input id="name" type="text" name="image[name]" placeholder="Name field">
-    <input id="tag" type="text" name="image[tag]" placeholder="Tags field">
-    <button class="btn btn-primary update">Confirm Edit</button>
-  </form>
-  <br>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 handlebar-card">
+    {{log image.owner}}
+    <img src="{{image.url}}" style="max-width: 100%; max-height: 100%;"/>
+    <h5>Name: {{image.name}}</h5>
+    <h6>Owner: {{image.owner.email}}</h6>
+    <h6>Tag:</h6>
+      <ul>
+          {{#each tag as |tag|}}
+          {{#if tag}}
+          <li>{{tag}}</li>
+          {{/if}}
+          {{/each}}
+      </ul>
+    <h6>Date Created: {{image.createdAt}}</h6>
+    <h6>Date Modified: {{image.updatedAt}}</h6>
+    <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
+      <input id="name" type="text" name="image[name]" value="{{image.name}}" placeholder="Name field">
+      <input id="tag" type="text" name="image[tag]" value="{{image.tag}}" placeholder="Tags field">
+      <button class="btn btn-primary update">Confirm Edit</button>
+    </form>
+    <br>
+  </div>
+  <div class="col-2"></div>
+</div>
 
 {{/each}}
