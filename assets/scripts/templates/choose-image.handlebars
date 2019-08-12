@@ -1,0 +1,30 @@
+{{#each images as |image|}}
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 handlebar-card">
+    <img src="{{image.url}}" style="max-width: 100%; max-height: 100%;"/>
+    <h5>Name: {{image.name}}</h5>
+    <h6>Owner: {{image.userName}}</h6>
+    <h6>Tag:</h6>
+      <ul>
+          {{#each tag as |tag|}}
+          {{#if tag}}
+          <li>{{tag}}</li>
+          {{/if}}
+          {{/each}}
+      </ul>
+    <h6>Date Created: {{image.createdAt}}</h6>
+    <h6>Date Modified: {{image.updatedAt}}</h6>
+    <form class='ImageUploadForm Handlebar-Form' id="imageUpdateForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
+      <label>Image Name</label><br/>
+      <input id="name" type="text" name="image[name]" value="{{image.name}}" placeholder="Name field" required><br/>
+      <label>Image Tags</label><br/>
+      <input id="tag" type="text" name="image[tag]" value="{{image.tag}}" placeholder="Tags field" required><br/>
+      <button class="btn btn-primary update">Confirm Edit</button>
+    </form>
+    <br>
+  </div>
+  <div class="col-2"></div>
+</div>
+
+{{/each}}

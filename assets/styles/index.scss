@@ -1,1 +1,96 @@
 @import '~bootstrap/scss/bootstrap';
+
+.handlebar-card {
+  padding: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: 20px;
+  border: 2px;
+  background: #3090C7;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  margin: 20px;
+  padding: 15px;
+}
+
+.Handlebar-Form {
+  border-radius: 15px;
+  border: 2px;
+  background: #efefef;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+  margin-left: 10px;
+  input, label, button {
+    padding: 15px;
+  }
+  label {
+    font-size: 20px;
+    font-family: 'Questrial', sans-serif;
+  }
+  input {
+    width: 100%;
+    border-radius: 15px;
+  }
+  button {
+    margin-top: 15px;
+  }
+}
+
+aside {
+  background: #222222;
+  color: #efefef;
+  min-height: 100vh;
+  padding-top: 10vh;
+  h1, {
+    font-family: 'Beth Ellen', cursive;
+  }
+  h3 {
+    font-family: 'Questrial', sans-serif;
+  }
+  .card-header {
+    background: #222222;
+    color: #efefef;
+    .btn {
+      color: #efefef;
+      margin: auto;
+      text-decoration: underline;
+    }
+    padding: 0 5px;
+  }
+
+  .sign-up {
+    background: #efefef;
+    color: #222222;
+  }
+
+  .card-body {
+    background: #222222;
+    color: #222222;
+    width: auto;
+  }
+
+  form {
+    input {
+      border-radius: 5px;
+      margin: 5%;
+      padding: 5%;
+      width: 90%;
+    }
+
+    .submit {
+      background: #222222;
+      border-radius: 15px;
+      color: #efefef;
+      margin-right: 20%;
+      margin-top: 30px;
+      padding: 5px 15px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+main {
+  background: #efefef;
+  color: #222222;
+}
