@@ -42,7 +42,6 @@ const onChangePassword = event => {
 
 const onSignOut = event => {
   event.preventDefault()
-
   api.signOut()
     .then(ui.signOutSuccessful)
     .catch(ui.failure)
@@ -54,9 +53,20 @@ const addHandlers = () => {
   $('#signIn').on('submit', function () {
     $('#show-create').show()
     $('#show-delete').show()
+    $('#show-update').show()
+    // $('#signIn').hide()
+    // $('#signUp').hide()
   })
   $('#changePassword').on('submit', onChangePassword)
-  $('#signOut').on('submit', onSignOut)
+  $('#signOut').on('submit', onSignOut).on('submit', () => {
+    $('#show-create').hide()
+    $('#show-delete').hide()
+    $('#show-update').hide()
+    $('#signIn').show()
+    $('#signUp').show()
+    $('#changePassword').hide()
+    $('#images-content').html('')
+  })
 }
 
 module.exports = {

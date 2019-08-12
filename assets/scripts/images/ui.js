@@ -92,22 +92,31 @@ const setUpdateSuccess = responseData => {
   $('#images-content').html('')
   $('#imageUploadForm').hide()
   $('#show-edit').show()
+  let ownedImages = 0
   let i
   for (i = 0; i < images.length; i++) {
     images[i].userName = images[i].owner.email.split('@')[0]
     images[i].editable = images[i].owner.email === store.user.email
+    if (images[i].editable === true) {
+      ownedImages++
+    }
   }
-  const imagesHtml = updateImageTemplate({ images: images })
 
+  const imagesHtml = () => {
+    if (ownedImages > 0) {
+      return updateImageTemplate({ images: images })
+    } else {
+      return '<h3>You suck. Get some images.<h3>'
+    }
+  }
   $('#images-content').append(imagesHtml)
 }
-
 const setUpdateFail = function () {
   failureMessage('Unable to Update Image')
 }
 
 const updateImageSuccess = responseData => {
-  successMessage('Successfully upated Image')
+  successMessage('Successfully updated Image')
 
   $('#images-content').html('')
   $('#show-images').show()

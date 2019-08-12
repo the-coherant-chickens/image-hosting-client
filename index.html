@@ -16,23 +16,8 @@
       <div class="row d-flex flex-row-reverse">
         <main class="col-sm-9">
 
-          <h2>Resource CRUD content</h2>
           <h3 id="user-status" class="head"></h3>
-            <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data">
-              <input type="file" name="file">
-              <input id="tag" type="text" name="tag" placeholder="Tags field">
-              <button class="btn btn-primary" type="submit">Submit please</button>
-            </form>
 
-            <button id="show-delete" class="btn btn-primary col-mb-3">Delete Images</button>
-
-            <button id="show-update" class="btn btn-primary col-mb-3">Update Images</button>
-
-            <button id="cancel-delete" class="btn btn-primary col-mb-3">CANCEL</button>
-
-            <button id="show-images" class="btn btn-primary col-mb-3">View All Images</button>
-
-            <button id="show-create" class="btn btn-primary col-mb-3">Upload New Image</button>
 
           <section id="images-content"></section>
 
@@ -122,6 +107,25 @@
                 </div>
               </div>
             </div>
+
+            <div class='Image-Functions'>
+              <button id="show-create" class="btn btn-primary col-mb-3">Upload New Image</button>
+              <br/>
+              <button id="show-images" class="btn btn-primary col-mb-3">View All Images</button>
+              <br/>
+              <button id="show-update" class="btn btn-primary col-mb-3">Update Images</button>
+              <br/>
+              <button id="show-delete" class="btn btn-primary col-mb-3">Delete Images</button>
+              <br/>
+              <button id="cancel-delete" class="btn btn-primary col-mb-3">CANCEL</button>
+            </div>
+
+            <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data">
+              <input type="file" name="file">
+              <label>Add comma seperated tags!</label>
+              <input id="tag" type="text" name="tag" placeholder="Tags field">
+              <button class="btn btn-primary" type="submit">Submit please</button>
+            </form>
           </div>
           <div class="col-1"></div>
         </aside>

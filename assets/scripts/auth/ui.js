@@ -30,6 +30,17 @@ const signInSuccessful = responseData => {
   store.user = responseData.user
   $('#passwordButton').removeClass('collapse')
   $('#signOutButton').removeClass('collapse')
+  // $('#signOut').removeClass('collapse')
+  // $('#SignOut').removeClass('collapse')
+  $('#show-create').show()
+  $('#show-delete').show()
+  $('#show-update').show()
+  $('#SignIn').addClass('collapse')
+  $('#SignUp').addClass('collapse')
+  $('#SignInToggle').removeClass('show')
+  $('.Image-Functions').show()
+  // $('#SignOutToggle').show()
+  $('#SignOut').removeClass('collapse')
 }
 
 const changePasswordSuccessful = responseData => {
@@ -38,6 +49,18 @@ const changePasswordSuccessful = responseData => {
 
 const signOutSuccessful = responseData => {
   successMessage('Sign out successful!')
+  $('#SignIn').removeClass('collapse')
+  $('#SignUp').removeClass('collapse')
+  $('#passwordButton').addClass('collapse')
+  $('#imageUploadForm').hide()
+  // $('#signOutButton').addClass('collapse')
+  // $('#SignOutToggle').hide()
+  $('#SignOutButton').addClass('collapse')
+  $('#SignOut').addClass('collapse')
+  $('#SignOutToggle').addClass('collapse')
+  $('#SignOutToggle').removeClass('show')
+  $('#images-content').html('')
+  $('.Image-Functions').hide()
 }
 
 module.exports = {
