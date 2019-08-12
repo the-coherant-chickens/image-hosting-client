@@ -16,7 +16,7 @@
       </ul>
     <h6>Date Created: {{image.createdAt}}</h6>
     <h6>Date Modified: {{image.updatedAt}}</h6>
-    <form class='ImageUploadForm' id="imageUploadForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
+    <form id="imageUpdateForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
       <input id="name" type="text" name="image[name]" value="{{image.name}}" placeholder="Name field">
       <input id="tag" type="text" name="image[tag]" value="{{image.tag}}" placeholder="Tags field">
       <button class="btn btn-primary update">Confirm Edit</button>
