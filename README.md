@@ -1,13 +1,17 @@
 # The Corherent Chickens
 ## Image Hosting
 
-This repo is built in tandem with < Inseret corresponding front-end back-end repos >
+This repo is built in tandem with https://github.com/the-coherant-chickens/the-coherent-chickens-client
+
+### Authors:
 - ##### Lori Pinkham (@lpinkham) | *Project Lead / Product Lead*
 - ##### Gabriel Andreottola (@gandreottola) | *Quality Assurance Lead*
 - ##### Seth Sprague (@swsprague) | *Back-End Lead*
 - ##### James Hankins (@JHankins09) | *Front-End Lead*
 
-## Getting Started
+### Development Process
+
+Chicken Pic's is an app to help you organize your images. This app allows you to upload your photo's and add some meaningful tags to each image. Create an account, sign-in and get started.
 
 ### Planning
 
@@ -92,21 +96,15 @@ Developement split amongst 4 primary team members. Scope of project created numo
   - javascript
   - Node.js
 
-## Versioning
+## Catalog of Routes
+| Method | Path |
+|-------|:----------|
+|GET   | /images/:id  |
+|POST   |  /images |
+|INDEX   |  /images |
+|DELETE   | /images/:id  |
+|PATCH   | /images/:id  |
 
-### Scripts - Client
-
-#### User
-  This houses all AJAX and JS functionality that impacts user account creation, login, or changes.
-
-#### Groups
-  This hosues all AJAX and JS functionality that impacts the creation, editing, and deletion of unique groups.
-
-#### Memberships
-  This houses all AJAX and JS functionality that impacts the creation and deletion of memberships.
-
-#### General
-  This houses all JS functionality that does not explicetly fall in the above. -Does not communicate to API-
 
 ## Acknowledgments
 This project is built as the result of participating in General Assembly Boston's Software Engineering Immersive course.
