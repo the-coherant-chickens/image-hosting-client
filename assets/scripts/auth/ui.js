@@ -28,6 +28,7 @@ const signUpSuccessful = responseData => {
 const signInSuccessful = responseData => {
   successMessage('Sign in successful!')
   store.user = responseData.user
+  $('#user-status').text('Check out all these Chicken Pix!')
   $('#passwordButton').removeClass('collapse')
   $('#signOutButton').removeClass('collapse')
   // $('#signOut').removeClass('collapse')
@@ -61,6 +62,7 @@ const signOutSuccessful = responseData => {
   $('#SignOutToggle').removeClass('show')
   $('#images-content').html('')
   $('.Image-Functions').hide()
+  $('#user-status').html('')
 }
 
 module.exports = {

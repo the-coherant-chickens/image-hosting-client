@@ -28,9 +28,7 @@ const onImageIndex = data => {
 
 const onSetDeleteState = data => {
   event.preventDefault()
-  // debugger
   api.imageIndex()
-    // .then(console.log)
     .then(ui.setDeleteStateSuccess)
     .catch(ui.setDeleteStateFail)
 }

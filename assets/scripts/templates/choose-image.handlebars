@@ -17,9 +17,9 @@
     <h6>Date Modified: {{image.updatedAt}}</h6>
     <form class='ImageUploadForm Handlebar-Form' id="imageUpdateForm" enctype="multipart/form-data" data-update-image="{{image._id}}">
       <label>Image Name</label><br/>
-      <input id="name" type="text" name="image[name]" value="{{image.name}}" placeholder="Name field"><br/>
+      <input id="name" type="text" name="image[name]" value="{{image.name}}" placeholder="Name field" required><br/>
       <label>Image Tags</label><br/>
-      <input id="tag" type="text" name="image[tag]" value="{{image.tag}}" placeholder="Tags field"><br/>
+      <input id="tag" type="text" name="image[tag]" value="{{image.tag}}" placeholder="Tags field" required><br/>
       <button class="btn btn-primary update">Confirm Edit</button>
     </form>
     <br>
