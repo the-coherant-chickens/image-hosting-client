@@ -110,7 +110,7 @@ const addHandlers = () => {
     $('#show-my-images').hide()
     $('#show-delete').hide()
   })
-  $('#cancel-delete').on('click', onImageIndex).hide()
+  $('#cancel-delete').on('click', onViewMyImages).hide()
   $('#cancel-delete').on('click', function () {
     $('#show-delete').show()
     $('#cancel-delete').hide()

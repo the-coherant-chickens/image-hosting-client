@@ -63,6 +63,8 @@ const signOutSuccessful = responseData => {
   $('#SignOutToggle').removeClass('show')
   $('#images-content').html('')
   $('.Image-Functions').hide()
+  $('#cancel-delete').hide()
+  $('#show-images').hide()
   $('#user-status').html('')
 }
 
