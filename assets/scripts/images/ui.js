@@ -60,6 +60,36 @@ const indexImagesFailure = function () {
   failureMessage('You haven\'t added uploaded any images yet!')
 }
 
+const viewMyImagesSuccess = responseData => {
+  const images = responseData.images
+  $('#images-content').html('')
+  $('#imageUploadForm').hide()
+  $('#show-create').show()
+  let ownedImages = []
+  let i
+  for (i = 0; i < images.length; i++) {
+    images[i].userName = images[i].owner.email.split('@')[0]
+    images[i].editable = images[i].owner.email === store.user.email
+    if (images[i].editable === true) {
+      ownedImages++
+    }
+  }
+
+  const imagesHtml = () => {
+    if (ownedImages > 0) {
+      return updateImageTemplate({ images: images })
+    } else {
+      return '<h3>User has no Cluckin\' images! Cluck That!<h3>'
+    }
+  }
+  $('#images-content').append(imagesHtml)
+  $('.update-image').hide()
+}
+
+const viewMyImagesFail = function () {
+  failureMessage('Unable to show User Images')
+}
+
 const setDeleteStateSuccess = responseData => {
   const images = responseData.images
   $('#images-content').html('')
@@ -162,5 +192,7 @@ module.exports = {
   updateImageSuccess,
   updateImageFail,
   getImageSuccess,
-  getImageFail
+  getImageFail,
+  viewMyImagesSuccess,
+  viewMyImagesFail
 }

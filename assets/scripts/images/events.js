@@ -26,6 +26,13 @@ const onImageIndex = data => {
     .catch(ui.indexImagesFailure)
 }
 
+const onViewMyImages = data => {
+  event.preventDefault()
+  api.imageIndex()
+    .then(ui.viewMyImagesSuccess)
+    .catch(ui.viewMyImagesFail)
+}
+
 const onSetDeleteState = data => {
   event.preventDefault()
   api.imageIndex()
@@ -87,9 +94,20 @@ const addHandlers = () => {
     $('#show-create').show()
     $('#show-images').show()
   }).hide()
+  $('#show-my-images').on('click', onViewMyImages).hide()
+  $('#show-my-images').on('click', function () {
+    $('#cancel-delete').hide()
+    $('#imageUploadForm').hide()
+    $('#show-my-images').hide()
+    $('#show-create').show()
+    $('#show-delete').show()
+    $('#show-images').show()
+  })
   $('#show-delete').on('click', onSetDeleteState).hide()
   $('#show-delete').on('click', function () {
     $('#cancel-delete').show()
+    $('#show-images').show()
+    $('#show-my-images').hide()
     $('#show-delete').hide()
   })
   $('#cancel-delete').on('click', onImageIndex).hide()
@@ -105,8 +123,13 @@ const addHandlers = () => {
     $('#imageUploadForm').hide()
     $('#show-create').show()
     $('#show-delete').show()
+    $('#show-my-images').show()
   })
   $('#show-update').on('click', onSetUpdateState).hide()
+  $('#show-update').on('click', function () {
+    $('#show-my-images').hide()
+    $('#show-images').show()
+  })
   $('body').on('click', '.update-image', onSelectImageEdit)
   $('body').on('submit', '#imageUpdateForm', onUpdateImage)
 }

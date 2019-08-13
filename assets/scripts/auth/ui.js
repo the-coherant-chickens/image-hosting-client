@@ -36,6 +36,7 @@ const signInSuccessful = responseData => {
   $('#show-create').show()
   $('#show-delete').show()
   $('#show-update').show()
+  $('#show-my-images').show()
   $('#SignIn').addClass('collapse')
   $('#SignUp').addClass('collapse')
   $('#SignInToggle').removeClass('show')
