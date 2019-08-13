@@ -158,6 +158,9 @@ const updateImageSuccess = responseData => {
 
   $('#images-content').html('')
   $('#show-images').show()
+  $('#show-my-images').show()
+  $('#cancel-delete').hide()
+  $('#show-delete').hide()
 }
 
 const updateImageFail = function () {
