@@ -96,6 +96,29 @@ Day 3
 
 Development split amongst 4 primary team members. Scope of project created numorous conflicts as features were built and imported to master code block, creating some repetition in content build. Team may have been too large or project scope to small.
 
+Notes/Images from Scrum meetings:
+
+![p4][wfp4]
+
+[wfp4]: https://user-images.githubusercontent.com/25508215/62913814-a1753f00-bd5b-11e9-9c13-b26043d18ef6.png
+
+![p5][wfp5]
+
+[wfp5]: https://user-images.githubusercontent.com/25508215/62913843-bfdb3a80-bd5b-11e9-8cc7-1b431d4723a7.png
+
+![p6][wfp6]
+
+[wfp6]: https://user-images.githubusercontent.com/25508215/62913851-c4075800-bd5b-11e9-9fa8-61133ea5e749.png
+
+![p7][wfp7]
+
+[wfp7]: https://user-images.githubusercontent.com/25508215/62913854-c8337580-bd5b-11e9-9090-c5dec820d3fe.png
+
+![p8][wfp8]
+
+[wfp8]: https://user-images.githubusercontent.com/25508215/62913842-bc47b380-bd5b-11e9-96e3-04cd43f31782.png
+
+
 ### ROUTING:
 ##### User-Routes
 - post - sign-up
