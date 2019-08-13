@@ -36,6 +36,23 @@
   }
 }
 
+.home-page-content {
+  background-image: url('./images/DSC_0444.JPG');
+  opacity: 0.5;
+  height: 100vh;
+  font-family: 'Questrial', sans-serif;
+
+}
+.scale-down {
+  object-fit: scale-down;
+  opacity: 0.5;
+}
+p {
+font-family: 'Questrial', sans-serif;
+font-size: 30px;
+text-align: center;
+}
+
 aside {
   background: #222222;
   color: #efefef;
